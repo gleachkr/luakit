@@ -53,7 +53,11 @@
 --   BEWARE its escaping!
 --
 -- * All of the attributes of the <code>form</code> and <code>input</code> tables
---   are matched as plain text.
+--   are matched as plain text, with the exception of the value attribute of an
+--   input table. If the value attribute is a string, then when a form is filled
+--   this string is inserted into matching position of the form. If the value is
+--   a function, then it is called without arguments. If it returns a string,
+--   the string is inserted into the matching position of the form.
 --
 -- * Setting <code>autofill = true</code> on a form definition will
 --   automatically fill and possibly submit any matching forms when a web page

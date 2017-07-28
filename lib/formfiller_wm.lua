@@ -136,6 +136,7 @@ local function apply (form, form_spec)
         local matches = match("input", {"name", "id", "className", "type"}, input_spec, {form})
         if #matches > 0 then
             local val = input_spec.value or input_spec.checked
+            if type(val) == "function" then val = val() end
             if val then fill_input(matches, val) end
             if input_spec.focus then matches[1]:focus() end
             if input_spec.select then matches[1]:select() end
